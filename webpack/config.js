@@ -1,9 +1,10 @@
+require('dotenv').config();
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const alias = require('./alias');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.join(__dirname, '..', 'src', 'index.js'),
   output: {
     path: path.join(__dirname, '..', 'build'),
     filename: '[name].bundle.js',
@@ -31,8 +32,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      favicon: './src/assets/favicon.ico',
-      template: './src/index.html'
+      favicon: path.join(__dirname, '..', 'src', 'assets', 'favicon.ico'),
+      template: path.join(__dirname, '..', 'src', 'index.html')
     })
   ]
 };

@@ -3,9 +3,9 @@ import { hydrate, render } from 'react-dom';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 
 import App from 'containers/app';
-import { register, unregister } from './sw';
 
 const publicUrl = process.env.PUBLIC_URL || '/';
+console.log(publicUrl);
 
 const supportsHistory = 'pushState' in window.history;
 const rootElement = document.getElementById('root');
@@ -31,6 +31,3 @@ if (module.hot)
   });
 
 renderApp(App);
-
-if (process.env.NODE_ENV === 'production') register();
-else unregister();
