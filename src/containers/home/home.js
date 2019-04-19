@@ -5,12 +5,14 @@ import { Helmet } from 'react-helmet';
 import Dropdown from 'components/dropdown';
 import Fretboard from 'components/fretboard';
 import Input from 'components/input';
+import ToneButton from 'components/tone-button';
 import { ControlsSection } from './style';
 
 import modes from './modes';
 
 const DEFAULT_FRET = 3;
 const DEFAULT_MODE = 'ionian';
+const DEFAULT_TEMPO = 120;
 
 const generateNotes = (fret, mode) => {
   const startingFret = (fret >= 0 && fret <= 24 && fret) || 0;
@@ -34,10 +36,24 @@ const modeOptions = generateOptions(modes);
 const Home = () => {
   const [fret, setFret] = useState(DEFAULT_FRET);
   const [mode, setMode] = useState(DEFAULT_MODE);
+  const [tempo, setTempo] = useState(DEFAULT_TEMPO);
   const notes = generateNotes(fret, mode);
+
   return (
     <div>
       <Helmet title='Modes' />
+      <ControlsSection>
+        <ToneButton tempo={tempo} notes={notes} />
+        <Input
+          label='Tempo'
+          type='number'
+          min='0'
+          defaultValue={DEFAULT_TEMPO}
+          onChange={evt =>
+            evt.target.value && setTempo(parseInt(evt.target.value))
+          }
+        />
+      </ControlsSection>
       <ControlsSection>
         <Input
           label='Starting fret'

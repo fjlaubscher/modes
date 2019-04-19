@@ -4,7 +4,6 @@ import { breakpoints, colors } from 'styles';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
   width: 100%;
 
   @media (min-width: ${breakpoints.small}px) {
@@ -15,7 +14,7 @@ export const Container = styled.div`
 export const StyledLabel = styled.label`
   white-space: nowrap;
   margin-right: 0.5rem;
-  min-width: 100px;
+  width: 100px;
 
   @media (min-width: ${breakpoints.small}px) {
     min-width: unset;
