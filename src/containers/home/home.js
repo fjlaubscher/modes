@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Dropdown from 'components/dropdown';
 import Fretboard from 'components/fretboard';
 import Input from 'components/input';
-import ToneButton from 'components/tone-button';
+import PlayButton from 'components/play-button';
 import { ControlsSection } from './style';
 
 // helpers
@@ -29,7 +29,7 @@ const Home = () => {
     <div>
       <Helmet title='Modes' />
       <ControlsSection>
-        <ToneButton play={play} onClick={() => setPlay(!play)} />
+        <PlayButton play={play} onClick={() => setPlay(!play)} />
         <Input
           label='Tempo'
           type='number'

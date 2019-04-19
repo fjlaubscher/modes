@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Tone, { Synth, Pattern, Transport, Draw } from 'tone';
+import Tone, { MonoSynth, Distortion, Pattern, Transport, Draw } from 'tone';
 import StartAudioContext from 'startaudiocontext';
 
 // helpers
@@ -14,15 +14,11 @@ const getColumnPlacement = (row, column) => {
 };
 
 // set up synth
-const synth = new Synth({
-  envelope: {
-    attack: 0.05,
-    decay: 0.2,
-    sustain: 0.2,
-    release: 1.5
-  },
-  portamento: 0.05
-}).toMaster();
+const distortion = new Distortion(0.8).toMaster();
+const synth = new MonoSynth({
+  oscillator: { type: 'sine' },
+  envelope: { attack: 0 }
+}).connect(distortion);
 
 class Fretboard extends Component {
   constructor(props) {
@@ -91,13 +87,13 @@ class Fretboard extends Component {
     this.loop.stop(0);
     this.loop.index = 0;
     Transport.stop();
-    synth.volume.value = -50;
+    synth.volume.value = -100;
   }
 
   start() {
     this.loop.start(0);
     Transport.start();
-    synth.volume.value = 0;
+    synth.volume.value = -30;
   }
 
   render() {
