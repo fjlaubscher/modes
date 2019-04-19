@@ -37,9 +37,10 @@ export const Line = styled.div`
 `;
 
 export const Note = styled.div`
-  background-color: ${colors.white};
   grid-column-start: ${({ column }) => column || 1};
   grid-column-end: ${({ column }) => (column && column + 1) || 2};
   z-index: 1;
   text-align: center;
+  background-color: ${colors.white};
+  color: ${({ active }) => (active && colors.dodgerBlue) || colors.black};
 `;

@@ -5,7 +5,6 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 import App from 'containers/app';
 
 const publicUrl = process.env.PUBLIC_URL || '/';
-console.log(publicUrl);
 
 const supportsHistory = 'pushState' in window.history;
 const rootElement = document.getElementById('root');
