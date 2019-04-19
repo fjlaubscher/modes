@@ -1,4 +1,8 @@
-# Guitar Modes
+# Guitar Modes 🎸
+
+Learn guitar modes the modern way -- using tabs.
+
+Web Audio API done thanks to [Tone.js](https://tonejs.github.io/)
 
 ## Getting Started
 ```

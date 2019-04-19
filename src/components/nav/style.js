@@ -11,6 +11,12 @@ export const StyledNav = styled.nav`
   color: ${colors.white};
   align-items: center;
   margin-bottom: 1rem;
+  justify-content: space-between;
+`;
+
+export const HomeButtonSection = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const AppIcon = styled(AppIconSvg)`
