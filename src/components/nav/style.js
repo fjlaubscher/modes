@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'react-router-dom/Link';
 import { colors } from 'styles';
 import { ReactComponent as AppIconSvg } from 'assets/guitar.svg';
 
@@ -17,7 +18,9 @@ export const AppIcon = styled(AppIconSvg)`
   fill: currentColor;
 `;
 
-export const Heading = styled.h1`
+export const Heading = styled(Link)`
   margin: 0 1rem;
-  font-weight: normal;
+  text-decoration: none;
+  color: ${colors.white};
+  font-size: 1.5rem;
 `;

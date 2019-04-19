@@ -8,6 +8,8 @@
     "prebuild": "npm run clean",
     "build": "webpack --mode production --config webpack/config.js",
     "postbuild": "react-snap",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "clean": "rimraf build",
     "lint": "eslint -c .eslintrc src"
   },
@@ -20,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "acorn": "^6.1.1",
+    "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

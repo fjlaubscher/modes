@@ -5,7 +5,7 @@ import { StyledNav, AppIcon, Heading } from './style';
 const Nav = () => (
   <StyledNav>
     <AppIcon />
-    <Heading>Modes</Heading>
+    <Heading to='/'>Modes</Heading>
   </StyledNav>
 );
 
