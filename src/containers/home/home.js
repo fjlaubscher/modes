@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 // components
@@ -19,11 +19,18 @@ const modeOptions = generateOptions();
 
 const Home = () => {
   const [fret, setFret] = useState(DEFAULT_FRET);
-  const [mode, setMode] = useState(DEFAULT_MODE);
+  const [currentMode, setCurrentMode] = useState(DEFAULT_MODE);
   const [tempo, setTempo] = useState(DEFAULT_TEMPO);
+  const [modes, setModes] = useState(null);
   const [play, setPlay] = useState(false);
 
-  const notes = generateNotes(fret, mode);
+  useEffect(() => {
+    // component is updated, regenerate all the options again
+    const generatedModes = generateNotes(fret);
+    setModes(generatedModes);
+  });
+
+  const notes = modes && modes[currentMode];
 
   return (
     <div>
@@ -58,11 +65,11 @@ const Home = () => {
           options={modeOptions}
           onChange={selected => {
             setPlay(false);
-            setMode(selected.value);
+            setCurrentMode(selected.value);
           }}
         />
       </ControlsSection>
-      <Fretboard notes={notes} play={play} tempo={tempo} />
+      {notes && <Fretboard notes={notes} play={play} tempo={tempo} />}
     </div>
   );
 };
